@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\pegawaiDBController;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return view('index');
@@ -56,6 +58,22 @@ Route::get('dosen', [DosenController::class,'index']);
 
 Route::get('biodata', [DosenController::class,'biodata']);
 
-//crud
+//crud pertemuan 11
 Route::get('/pegawai', [pegawaiDBController::class,'index']);
+Route::get('/pegawai/tambah', [pegawaiDBController::class,'tambah']);
+Route::post('/pegawai/store', [pegawaiDBController::class,'store']);
+Route::get('/pegawai/edit/{id}', [pegawaiDBController::class,'edit']);
+Route::post('/pegawai/update', [pegawaiDBController::class,'update']);
+Route::get('/pegawai/hapus/{id}', [pegawaiDBController::class,'hapus']);
+Route::get('/pegawai/cari', [pegawaiDBController::class,'cari']);
+
+//Pertemuan 7
+Route::get('/pegawai/{nama}', [PegawaiController::class, 'index']);
+Route::get('/formulir', [PegawaiController::class,'formulir']);
+Route::post('/formulir/proses', [PegawaiController::class,'proses']);
+
+// route blog
+Route::get('/blog', [BlogController::class, 'home']);
+Route::get('/blog/tentang', [BlogController::class, 'tentang']);
+Route::get('/blog/kontak', [BlogController::class, 'kontak']);
 
