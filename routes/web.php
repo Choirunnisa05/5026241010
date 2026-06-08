@@ -5,6 +5,9 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\pegawaiDBController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
+// jangan di replace file nya , copy paste kan perintahnya
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\NilaiKuliahController;
 
 Route::get('/', function () {
     return view('index');
@@ -77,3 +80,19 @@ Route::get('/blog', [BlogController::class, 'home']);
 Route::get('/blog/tentang', [BlogController::class, 'tentang']);
 Route::get('/blog/kontak', [BlogController::class, 'kontak']);
 
+//route CRUD siswa
+Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
+Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
+Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
+Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
+Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+
+// route CRUD nilaikuliah
+Route::get('/nilaikuliah', [NilaiKuliahController::class, 'index'])->name('nilaikuliah.index');
+Route::get('/nilaikuliah/create', [NilaiKuliahController::class, 'create'])->name('nilaikuliah.create');
+Route::post('/nilaikuliah/store', [NilaiKuliahController::class, 'store'])->name('nilaikuliah.store');
+Route::get('/nilaikuliah/read/{id}', [NilaiKuliahController::class, 'read'])->name('nilaikuliah.read');
+Route::get('/nilaikuliah/edit/{id}', [NilaiKuliahController::class, 'edit'])->name('nilaikuliah.edit');
+Route::post('/nilaikuliah/update/{id}', [NilaiKuliahController::class, 'update'])->name('nilaikuliah.update');
+Route::get('/nilaikuliah/delete/{id}', [NilaiKuliahController::class, 'delete'])->name('nilaikuliah.delete');

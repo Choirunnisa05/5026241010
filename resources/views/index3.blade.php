@@ -13,7 +13,7 @@
 
     <br />
 
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover">ad
         <tr>
             <th>Nama</th>
             <th>Jabatan</th>
